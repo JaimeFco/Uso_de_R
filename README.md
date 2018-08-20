@@ -4,6 +4,9 @@ Traducción de los ejercicios del libro QSS. Actividad del Taller Introducción 
 Para descargar e instalar el curso
 
 install.packages("swirl")
+
 library(swirl)
+
 install_course_github("JaimeFco", "Uso_de_R")
+
 swirl()
