@@ -1,0 +1,180 @@
+- Class: meta
+  Course: Uso de R
+  Lesson: Intro1
+  Author: Jaime Francisco Aguayo G.
+  Type: Standard
+  Organization: Universidad de Guanajuato
+  Version: 2.4.3
+
+- Class: text
+  Output: 'Los siguientes ejercicios son tomados del Capítulo 1 de ''Quantitative Social Science: Introduction'' y traducidos por Jaime F. Aguayo González para el taller de ''Introducción a la Ciencia de Datos y el Uso de R''. Cualquier duda publicarlo en el classroom de Google. Cuando veas los tres puntos ..., presiona Enter.'
+
+- Class: text
+  Output: 'Si en alguna ocasión tienes la necesidad de pedir ayua a R, puedes teclear help.start() en la consola, la cual abrirá un índice de documentación de R. Muchos de los recursos de R también están disponibles en la web y son fáciles de encontrar realizando una búsqueda en Google.'
+
+- Class: text
+  Output: 'En lo sucesivo pondremos comillas dobles "" para indicar que nos referimos a nombres de objetos de R. En el presente código sólo lo pondremos en unas pocas ocasiones.'
+
+- Class: text
+  Output: 'Empecemos por practicar algunas operaciones aritméticas en R, como si se tratase de una calculadora.'
+
+# Question 1
+- Class: cmd_question
+  Output: '¿Cómo realizarías la operación 8 menos 2?'
+  CorrectAnswer: '8 - 2'
+  AnswerTests: omnitest(correctExpr='8 - 2')
+  Hint: See 'Arithmetic Operations'.
+
+# Question 2
+- Class: cmd_question
+  Output: '¿Cómo obtendrías el cuadrado de 10?'
+  CorrectAnswer: '10 ^ 2'
+  AnswerTests: omnitest(correctExpr='10 ^ 2')
+  Hint: See 'Arithmetic Operations'.
+
+# Question 3
+- Class: cmd_question
+  Output: '¿Cómo se obtiene la raíz cuadrada de 9?'
+  CorrectAnswer: 'sqrt(9)'
+  AnswerTests: omnitest(correctExpr='sqrt(9)')
+  Hint: See 'Arithmetic Operations'.
+
+- Class: text
+  Output: 'Bien, ahora vamos a practicar la creación de objetos objects en R.'
+
+# Question 4
+- Class: cmd_question
+  Output: 'Asigna el nombre "result" al resultado de 8 - 2.'
+  CorrectAnswer: 'result <- 8 - 2'
+  AnswerTests: omnitest(correctExpr='result <- 8 - 2')
+  Hint: See 'Objects'.
+
+# Question 5
+- Class: cmd_question
+  Output: 'Escribe el nombre de la variable que recién creamos para ver su contenido.'
+  CorrectAnswer: 'result'
+  AnswerTests: omnitest(correctExpr='result')
+  Hint: See 'Objects'.
+
+- Class: text
+  Output: 'También podemos nombrar una cadena de caracteres (string)'
+
+# Question 6
+- Class: cmd_question
+  Output: 'Dale a la frase ''social science'' el nombre de "course".'
+  CorrectAnswer: 'course <- "social science"'
+  AnswerTests: omnitest(correctExpr='course <- "social science"')
+  Hint: See 'Objects'.
+
+- Class: text
+  Output: 'Fíjate que los espacios son admitidos dentro de la cadena de caracteres, es decir, dentro de las comillas.'
+
+- Class: text
+  Output: 'Podemos cambiar a lo que se refiere el nombre y asignar ese nombre a otro objeto.'
+
+# Question 7
+- Class: cmd_question
+  Output: 'Haz que "course" se refiera al objeto ''learning R''.'
+  CorrectAnswer: 'course <- "learning R"'
+  AnswerTests: omnitest(correctExpr='course <- "learning R"')
+  Hint: See 'Objects'.'
+
+- Class: text
+  Output: 'Cuando se asigna un objeto existente a un nuevo nombre, estamos haciendo una copia de dicho objeto.'
+
+# Question 8
+- Class: cmd_question
+  Output: 'Asigna el valor de "result" a "result2"'
+  CorrectAnswer: 'result2 <- result'
+  AnswerTests: omnitest(correctExpr='result2 <- result')
+  Hint: See 'Objects'.'
+
+# Question 9
+- Class: cmd_question
+  Output: 'Ahora haz que el nombre "result" tenga el valor de 10 menos 2'
+  CorrectAnswer: 'result <- 10 - 2'
+  AnswerTests: omnitest(correctExpr='result <- 10 - 2')
+  Hint: See 'Objects'.'
+
+# Question 10
+- Class: mult_question
+  Output: '¿Qué crees que imprima R si escribimos "c(result, result2)"?'
+  AnswerChoices: 'un seis y un seis; un ocho y un seis; un seis y un ocho; un ocho y un ocho'
+  CorrectAnswer: un ocho y un seis
+  AnswerTests: omnitest(correctVal = 'un ocho y un seis')
+
+- Class: text
+  Output: 'Ahora, vamos a empezar a trabajar con datos reales: los estimados de la población mundial (en millares). El vector llamado "world.pop" ha sido cargado en esta lección. El primer elemento contiene la información de 1950 y el último el del 2010.'
+
+# Question 11
+- Class: cmd_question
+  Output: 'Verifica que "world.pop" efectivamente es un vector de números tecleando el nombre para ver su contenido.'
+  CorrectAnswer: 'world.pop'
+  AnswerTests: any_of_exprs('world.pop', 'print(world.pop)')
+  Hint: See 'Vectors'.
+
+# Question 12
+- Class: cmd_question
+  Output: 'Usa los índices para imprimir el 4to elemento del vector "world.pop".'
+  CorrectAnswer: 'world.pop[4]'
+  AnswerTests: omnitest(correctExpr='world.pop[4]')
+  Hint: See 'Vectors'.
+
+# Question 13
+- Class: cmd_question
+  Output: 'Usa los índices y la concatenación para obtener solo los elementos 1ro y 4to de "world.pop"'
+  CorrectAnswer: 'world.pop[c(1,4)]'
+  AnswerTests: any_of_exprs('world.pop[c(1,4)]', 'c(world.pop[1], world.pop[4])')
+  Hint: See 'Vectors'.
+
+- Class: text
+  Output: 'Vamos a practicar ahora el uso de algunas funciones.'
+
+# Question 14
+- Class: cmd_question
+  Output: '¿Cómo obtendrías la longitud del vector "world.pop", i.e., el número de elementos de "world.pop"?'
+  CorrectAnswer: 'length(world.pop)'
+  AnswerTests: omnitest(correctExpr='length(world.pop)')
+  Hint: See 'Functions'.
+
+# Question 15
+- Class: cmd_question
+  Output: 'Crea un vector, usando la función secuencia, que vaya de 1950 a 2010 con incrementos de 10. Asigna este vector a un objeto llamado "year".'
+  CorrectAnswer: 'year <- seq(from = 1950, to = 2010, by = 10)'
+  AnswerTests: any_of_exprs('year <- seq(from = 1950, to = 2010, by = 10)', 'year <- seq(1950, 2010, 10)')
+  Hint: See 'Functions'.
+
+# Question 16
+- Class: cmd_question
+  Output: 'Usa el vector "year" para darle nombres a los elementos del vector "world.pop".'
+  CorrectAnswer: 'names(world.pop) <- year'
+  AnswerTests: any_of_exprs('names(world.pop) <- year', 'setNames(world.pop) <- year')
+  Hint: See 'Functions'.
+
+- Class: text
+  Output: 'Hemos incluido un vector "x" a esta lección. Este vector contiene 10 enteros del 0 al 100.'
+
+# Question 17
+- Class: cmd_question
+  Output: '¿Cómo reemplazarías el primer elemento "x" con un valor faltante (missing value)?'
+  CorrectAnswer: 'x[1] <- NA'
+  AnswerTests: any_of_exprs('x[1] <- NA', 'x <- replace(x, 1, NA)')
+  Hint: See 'Functions'.
+
+# Question 18
+- Class: mult_question
+  Output: 'Dado lo anterior, ¿Qué crees que regrese la función "mean(x)"?'
+  AnswerChoices: 'el promedio de los números sobrantes; el quinto mayor número de "x"; un valor faltante'
+  CorrectAnswer: un valor faltante
+  AnswerTests: omnitest(correctVal = 'un valor faltante')
+  Hint: See 'Data Files'.
+
+- Class: text
+  Output: 'Genial!!! Haz completado la parte 1 de la introducción al uso de R'
+
+- Class: mult_question
+  Output: ¿Te gustaría registrar el progreso de esta sesión?
+  AnswerChoices: Sí;No
+  CorrectAnswer: Sí
+  AnswerTests: submit_log()
+  Hint: hint

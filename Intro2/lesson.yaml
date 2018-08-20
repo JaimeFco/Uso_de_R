@@ -1,0 +1,155 @@
+- Class: meta
+  Course: Uso de R
+  Lesson: Intro2
+  Author: Jaime Francisco Aguayo G
+  Type: Standard
+  Organization: Universidad de Guanajuato
+  Version: 2.4.3
+
+
+- Class: text
+  Output: 'Estos ejercicios son tomados del capítulo 1 de ''Quantitative Social Science: Introduction'' y traducidos por Jaime F. Aguayo González para el curso ''Introducción a la Ciencia de Datos y el uso de R''.'
+
+# Question 1
+- Class: cmd_question
+  Output: '¿Cómo multiplicarías 4 por 7?'
+  CorrectAnswer: '4 * 7'
+  AnswerTests: omnitest(correctExpr='4 * 7')
+  Hint: See 'Arithmetic Operations'.
+
+# Question 2
+- Class: cmd_question
+  Output: '¿Cómo multiplicarías 2 por el resultado de 9 más 1?'
+  CorrectAnswer: '2 * (9 + 1)'
+  AnswerTests: any_of_exprs('2 * (9 + 1)', '(9 + 1) * 2')
+  Hint: See 'Arithmetic Operations'.
+
+- Class: text
+  Output: 'Es posible tratar los números como si fueran caracteres en R. Para ello tienes que decírcelo a R. Sin embargo, ten en cuenta que no es posible realizar operaciones aritméticas al nuevo objeto.'
+
+# Question 3
+- Class: cmd_question
+  Output: 'Crea la variable "myobject" con el valor 10.'
+  CorrectAnswer: 'myobject <- 10'
+  AnswerTests: omnitest(correctExpr='myobject <- 10')
+  Hint: See 'Objects'.
+
+# Question 4
+- Class: cmd_question
+  Output: 'Sustrae 2 a "myobject" y al resultado llámale "result".'
+  CorrectAnswer: 'result <- myobject - 2'
+  AnswerTests: omnitest(correctExpr = 'result <- myobject - 2')
+  Hint: See 'Objects'.
+
+# Question 5
+- Class: cmd_question
+  Output: 'Usa una función que imprima la clase del objeto "result".'
+  CorrectAnswer: 'class(result)'
+  AnswerTests: omnitest(correctExpr= 'class(result)')
+  Hint: See 'Objects'.
+
+# Question 6
+- Class: cmd_question
+  Output: 'Ahora haz que "myobject" se refiera al caracter ''10'' en vez de al número 10.'
+  CorrectAnswer: 'myobject <- "10"'
+  AnswerTests: omnitest(correctExpr='myobject <- \'10\'')
+  Hint: See 'Objects'.
+
+# Question 7
+- Class: mult_question
+  Output: '¿Cuál es el valor de "myobject" - 2?'
+  AnswerChoices: '12; El mismo que "result"; No está definido'
+  CorrectAnswer: No está definido
+  AnswerTests: omnitest(correctVal = 'It is undefined')
+  Hint: See 'Objects'.
+
+- Class: text
+  Output: 'Un vector llamado "x" con 10 enteros del 1 al 100 ha sido incluido en esta lección.'
+
+# Question 8
+- Class: cmd_question
+  Output: 'Concatena los primeros dos elementos de "x".'
+  CorrectAnswer: 'c(x[1],x[2])'
+  AnswerTests: any_of_exprs('c(x[1],x[2])', 'x[c(1,2)]', 'x[1:2]')
+  Hint: See 'Vectors'.
+
+# Question 9
+- Class: cmd_question
+  Output: 'Encuentra el valor máximo de "x".'
+  CorrectAnswer: 'max(x)'
+  AnswerTests: omnitest(correctExpr = 'max(x)')
+  Hint: See 'Functions'.
+
+- Class: text
+  Output: 'Un vector de datos llamado "world.pop" ha sido agregado junto con la lección. Justo como en la lección anterior.'
+
+- Class: text
+  Output: '"world.pop" es un vector numérico, i.e. contiene números, así que podemos hacer operaciones aritméticas con él.'
+
+# Question 10
+- Class: cmd_question
+  Output: 'Divide cada elemento de "world.pop" por 1000 y llama al resulto "pop.million".'
+  CorrectAnswer: 'pop.million <- world.pop / 1000'
+  AnswerTests: omnitest(correctExpr='pop.million <- world.pop / 1000')
+  Hint: See 'Vectors'.
+
+- Class: text
+  Output: 'También junto con la lección hay un archivo CSV llamado "data.csv". Por conveniencia, la dirección al archivo "data.csv" lo hemos llamado "data_path".'
+
+# Question 11
+- Class: cmd_question
+  Output: 'Encuentra el valor de "data_path".'
+  CorrectAnswer: 'data_path'
+  AnswerTests: omnitest(correctExpr='data_path')
+  Hint: See 'Objects'.
+
+# Question 12
+- Class: cmd_question
+  Output: 'Usando a "data_path" como la dirección de los datos, lee el contenido del archivo de datos y llámalo "df" (df de Data Frame).'
+  CorrectAnswer: 'df <- read.csv(data_path, header = TRUE)'
+  AnswerTests: any_of_exprs('df <- read.csv(data_path, header = TRUE)', 'df <- read.csv(data_path, header = T)', 'df <- read.csv(data_path)')
+  Hint: See 'Data Files'.
+
+- Class: text
+  Output: 'Un objeto de tipo data frame llamado "UNpop" ha sido incluido a esta lección.'
+
+# Question 13
+- Class: cmd_question
+  Output: '¿Cuáles son las dimensiones de "UNpop"?'
+  CorrectAnswer: 'dim(UNpop)'
+  AnswerTests: omnitest(correctExpr='dim(UNpop)')
+  Hint: See 'Data Files'.
+
+# Question 14
+- Class: cmd_question
+  Output: 'Extrae la variable "world.pop" del data frame "UNpop".'
+  CorrectAnswer: 'UNpop$world.pop'
+  AnswerTests: any_of_exprs('UNpop$world.pop', 'UNpop[,"world.pop"]')
+  Hint: See 'Data Files'.
+
+# Question 15
+- Class: cmd_question
+  Output: 'Usa los índices y/o el operador $ para ver las últimas cuatro observaciones de la variable "year" contenida en el data frame "UNpop".'
+  CorrectAnswer: 'UNpop$year[4:7]'
+  AnswerTests: any_of_exprs('UNpop[4:7, "year"]', 'UNpop[4:7, 2]', 'UNpop$year[4:7]', 'UNpop[c(4:7), "year"]', 'UNpop[c(4:7), 2]', 'UNpop$year[c(4:7)]', 'UNpop$year[seq(from = 4, to = 7)]')
+  Hint: See 'Data Files'.
+
+- Class: text
+  Output: 'Nota que se tiene que poner entre comillas " " el nombre de la variable si lo colocas dentro de los [] en "UNpop", por ejemplo UNpop[c(4:7), "year"], pero no lleva comillas si lo usas con el operador $ como UNpop$year[4:7].'
+
+# Question 16
+- Class: cmd_question
+  Output: 'R usa un caracter especial para denotar los comentarios. Usa la función "print()" para escribir ''X starts every comment''. Reemplaza X con el símbolo que se usa para escribir un comentario.'
+  CorrectAnswer: 'print("# starts every comment")'
+  AnswerTests: omnitest(correctExpr='print("# starts every comment")')
+  Hint: See 'Data Files'.
+
+# Question 17
+- Class: cmd_question
+  Output: '¿Qué comando usarías para cargar el paquete de R "utils"?'
+  CorrectAnswer: 'library(utils)'
+  AnswerTests: any_of_exprs('library(utils)', 'library("utils")')
+  Hint: See 'Data Files'.
+
+- Class: text
+  Output: 'Excelente! Has concluido la parte 2 del curso Introductorio de R. Es momento de ver cosas más interesantes.'
