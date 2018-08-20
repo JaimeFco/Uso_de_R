@@ -172,9 +172,4 @@
 - Class: text
   Output: 'Genial!!! Haz completado la parte 1 de la introducción al uso de R'
 
-- Class: mult_question
-  Output: ¿Te gustaría registrar el progreso de esta sesión?
-  AnswerChoices: Sí;No
-  CorrectAnswer: Sí
-  AnswerTests: submit_log(); omnitest(correctVal = 'Sí')
-  Hint: hint
+
