@@ -176,5 +176,5 @@
   Output: ¿Te gustaría registrar el progreso de esta sesión?
   AnswerChoices: Sí;No
   CorrectAnswer: Sí
-  AnswerTests: submit_log()
+  AnswerTests: submit_log(); omnitest(correctVal = 'Sí')
   Hint: hint
